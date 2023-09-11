@@ -1,4 +1,4 @@
-apiVersion: loggie.io/v1beta1
+apiVersion: v1alpha1
 kind: CustomResourceDefinition
 metadata:
   name: tomcat
