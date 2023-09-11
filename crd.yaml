@@ -1,5 +1,5 @@
 apiVersion: loggie.io/v1beta1
-kind: LogConfig
+kind: CustomResourceDefinition
 metadata:
   name: tomcat
   namespace: default
