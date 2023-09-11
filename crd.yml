@@ -1,0 +1,22 @@
+apiVersion: loggie.io/v1beta1
+kind: LogConfig
+metadata:
+  name: tomcat
+  namespace: default
+spec:
+  selector:
+    type: pod
+    labelSelector:
+      app: tomcat
+  pipeline:
+    sources: |
+      - type: file
+        name: common
+        paths:
+          - stdout
+    sink: |
+      type: dev
+      printEvents: false
+    interceptors: |
+      - type: rateLimit
+        qps: 90000
