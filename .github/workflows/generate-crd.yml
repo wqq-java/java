@@ -38,6 +38,7 @@ jobs:
           mkdir -p ${GEN_DIR}
           docker run \
             --rm \
+            --validate=false \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":"$(pwd)" \
             --network host \
@@ -47,7 +48,6 @@ jobs:
             ${CRD_API_GROUP_ARGS} \
             -p ${{ github.event.inputs.generatingJavaPackage }} \
             -o "$(pwd)/${GEN_DIR}"
-            --validate=false
           ls -lh ${GEN_DIR}
       - uses: actions/upload-artifact@v3
         with:
